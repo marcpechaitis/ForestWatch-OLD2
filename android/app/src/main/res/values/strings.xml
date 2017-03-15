@@ -1,0 +1,4 @@
+<resources>
+    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">IhQ92PJMwYuhC0GhHZEvYHfnUEAfVyb2MWNGM</string>
+    <string name="app_name">ForestWatch</string>
+</resources>
