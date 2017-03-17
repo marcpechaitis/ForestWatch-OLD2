@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, TouchableOpacity } from 'react-native';
+import { Alert, Platform, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import {
@@ -48,6 +48,7 @@ class Home extends Component {
   }
 
   render() {
+    const platform = Platform.OS;
     return (
       <Container style={commonStyles.container}>
         <Header iconRight style={commonStyles.header}>
@@ -60,15 +61,16 @@ class Home extends Component {
               <Icon name="ios-power" />
             </Button>
           </Left>
-          */}
-          <Left />
+
+          <Left style={{ backgroundColor: 'red' }} />   */}
+          {platform === 'ios' ? <Left /> : null}
           <Body>
             <Title style={commonStyles.headerText} allowFontScaling={false}>
               {this.props.name ? this.props.name : params.APP_TITLE}
             </Title>
-            <Subtitle style={commonStyles.headerText} allowFontScaling={false}>
+            {/*    <Subtitle style={commonStyles.headerText} allowFontScaling={false}>
               {params.APP_SUBTITLE}
-            </Subtitle>
+            </Subtitle>  */}
           </Body>
           <Right>
             <Button transparent onPress={this.props.openDrawer}>

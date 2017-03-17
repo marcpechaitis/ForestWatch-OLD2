@@ -25,11 +25,13 @@ export default {
     flex: 3,
   },
   content: {
+    flex: 1,
     backgroundColor: commonColors.BACKGROUND_COLOR_CONTENT,
     width: deviceWidth,
     height: deviceHeight,
   },
   card: {
+    flex: 1,
     backgroundColor: commonColors.BACKGROUND_COLOR_CARD,
     margin: 8,
     padding: 8,
@@ -52,7 +54,7 @@ export default {
     flex: 1,
     backgroundColor: commonColors.BUTTON_COLOR,
     marginTop: 16,
-    marginBottom: 16,
+    //    marginBottom: 16,
     width: 200,
     alignSelf: 'center',
     justifyContent: 'center',

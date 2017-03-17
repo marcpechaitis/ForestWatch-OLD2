@@ -7,30 +7,19 @@ import commonColors from '../../common/commonColors';
 // const { StyleSheet } = React;
 export default {
   grid: {
-    marginTop: 4,
+    flex: 1,
+    //    marginTop: 4,
   },
   row: {
     flex: 1,
     alignItems: 'center',
-    //    backgroundColor: 'goldenrod',
-    paddingTop: 4,
-    paddingBottom: 4,
+    backgroundColor: 'goldenrod',
+    paddingTop: 8,
+    paddingBottom: 8,
   },
   text: {
-    fontSize: 16,
+    fontSize: 18,
     marginBottom: 8,
     alignItems: 'center',
-  },
-  buttonText: {
-    fontSize: 16,
-    color: '#fff',
-  },
-  button: {
-    marginTop: 16,
-    marginBottom: 16,
-    backgroundColor: commonColors.BUTTON_COLOR,
-    width: 200,
-    alignSelf: 'center',
-    justifyContent: 'center',
   },
 };

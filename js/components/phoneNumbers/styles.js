@@ -43,7 +43,7 @@ export default {
     flex: 1,
     backgroundColor: commonColors.BUTTON_COLOR_EMERGENCY,
     marginTop: 16,
-    marginBottom: 16,
+    marginBottom: 32,
     width: 200,
     alignSelf: 'center',
     justifyContent: 'center',

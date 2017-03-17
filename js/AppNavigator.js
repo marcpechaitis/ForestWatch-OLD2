@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { BackAndroid, StatusBar, NavigationExperimental } from 'react-native';
 import { connect } from 'react-redux';
@@ -25,7 +24,6 @@ const {
 } = NavigationExperimental;
 
 class AppNavigator extends Component {
-
   static propTypes = {
     drawerState: React.PropTypes.string,
     popRoute: React.PropTypes.func,
@@ -34,17 +32,31 @@ class AppNavigator extends Component {
       key: React.PropTypes.string,
       routes: React.PropTypes.array,
     }),
+    _handleBackAction: React.PropTypes.func,
+  };
+
+  constructor(props) {
+    super(props);
+    this._handleBackAction = this._handleBackAction.bind(this);
   }
 
   componentDidMount() {
     BackAndroid.addEventListener('hardwareBackPress', () => {
+      /*
+      console.log('press back sucka');
       const routes = this.props.navigation.routes;
 
-      if (routes[routes.length - 1].key === 'home' || routes[routes.length - 1].key === 'login') {
+      if (
+        routes[routes.length - 1].key === 'home' ||
+        routes[routes.length - 1].key === 'login'
+      ) {
         return false;
       }
 
       this.props.popRoute(this.props.navigation.key);
+      return true;
+      */
+      this._handleBackAction();
       return true;
     });
   }
@@ -63,6 +75,29 @@ class AppNavigator extends Component {
     this.props.popRoute();
   }
 
+  _handleBackAction() {
+    /*  if (this.props.cardNavigation.index === 0) {
+      return false;
+    }
+    */
+
+    console.log('get back sucka');
+    //  this.popRoute();
+
+    const routes = this.props.navigation.routes;
+
+    if (
+      routes[routes.length - 1].key === 'home' ||
+      routes[routes.length - 1].key === 'login'
+    ) {
+      return false;
+    }
+
+    this.props.popRoute(this.props.navigation.key);
+
+    return true;
+  }
+
   openDrawer() {
     this._drawer._root.open();
   }
@@ -73,7 +108,8 @@ class AppNavigator extends Component {
     }
   }
 
-  _renderScene(props) { // eslint-disable-line class-methods-use-this
+  _renderScene(props) {
+    // eslint-disable-line class-methods-use-this
     switch (props.scene.route.key) {
       case 'about':
         return <About />;
@@ -95,7 +131,9 @@ class AppNavigator extends Component {
   render() {
     return (
       <Drawer
-        ref={(ref) => { this._drawer = ref; }}
+        ref={ref => {
+          this._drawer = ref;
+        }}
         type="overlay"
         side="right"
         tweenDuration={150}
@@ -112,7 +150,8 @@ class AppNavigator extends Component {
             shadowRadius: 3,
           },
         }}
-        tweenHandler={(ratio) => {  //eslint-disable-line
+        tweenHandler={ratio => {
+          //eslint-disable-line
           return {
             drawer: { shadowRadius: ratio < 0.2 ? ratio * 5 * 5 : 5 },
             main: {
@@ -122,12 +161,10 @@ class AppNavigator extends Component {
         }}
         negotiatePan
       >
-        <StatusBar
-          backgroundColor={statusBarColor}
-          barStyle="default"
-        />
+        <StatusBar backgroundColor={statusBarColor} barStyle="default" />
         <NavigationCardStack
           navigationState={this.props.navigation}
+          onNavigateBack={this._handleBackAction}
           renderOverlay={this._renderOverlay}
           renderScene={this._renderScene}
         />
