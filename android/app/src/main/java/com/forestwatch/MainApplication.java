@@ -1,4 +1,4 @@
-package com.forestwatch;
+package com.sugarloafappcompany.forestwatch.p2p;
 
 import android.app.Application;
 import android.util.Log;
