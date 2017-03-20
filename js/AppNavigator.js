@@ -3,6 +3,7 @@ import { BackAndroid, StatusBar, NavigationExperimental } from 'react-native';
 import { connect } from 'react-redux';
 import { Drawer } from 'native-base';
 import { actions } from 'react-native-navigation-redux-helpers';
+import SplashScreen from 'react-native-splash-screen';
 
 import { closeDrawer } from './actions/drawer';
 
@@ -59,6 +60,7 @@ class AppNavigator extends Component {
       this._handleBackAction();
       return true;
     });
+    SplashScreen.hide();
   }
 
   componentDidUpdate() {
