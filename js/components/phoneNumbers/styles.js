@@ -42,8 +42,8 @@ export default {
   buttonEmergency: {
     flex: 1,
     backgroundColor: commonColors.BUTTON_COLOR_EMERGENCY,
-    marginTop: 16,
-    marginBottom: 32,
+    marginTop: 32,
+    marginBottom: 16,
     width: 200,
     alignSelf: 'center',
     justifyContent: 'center',
@@ -52,13 +52,13 @@ export default {
     flex: 1,
     backgroundColor: commonColors.BUTTON_COLOR,
     marginTop: 16,
-    marginBottom: 16,
+    marginBottom: 8,
     width: 200,
     alignSelf: 'center',
     justifyContent: 'center',
   },
-  textMarginTop16: {
-    marginTop: 16,
+  textMarginTop24: {
+    marginTop: 24,
     fontSize: 16,
     alignItems: 'center',
   },

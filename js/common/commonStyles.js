@@ -21,6 +21,10 @@ export default {
   headerText: {
     color: commonColors.HEADER_TEXT_COLOR,
   },
+  headerTextAndroid: {
+    marginLeft: 8,
+    color: commonColors.HEADER_TEXT_COLOR,
+  },
   headerBody: {
     flex: 3,
   },
@@ -53,8 +57,7 @@ export default {
   button: {
     flex: 1,
     backgroundColor: commonColors.BUTTON_COLOR,
-    marginTop: 16,
-    //    marginBottom: 16,
+    //    margin: 8,
     width: 200,
     alignSelf: 'center',
     justifyContent: 'center',

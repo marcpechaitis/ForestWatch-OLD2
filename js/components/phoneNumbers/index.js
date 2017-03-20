@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, Linking } from 'react-native';
+import { Alert, Linking, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import {
@@ -24,6 +24,8 @@ import styles from './styles';
 const {
   popRoute,
 } = actions;
+
+const pageTitle = 'Important Phone Numbers';
 
 class PhoneNumbers extends Component {
   static propTypes = {
@@ -58,20 +60,29 @@ class PhoneNumbers extends Component {
   }
 
   render() {
+    const platform = Platform.OS;
     return (
       <Container style={commonStyles.container}>
         <Header style={commonStyles.header}>
           <Left>
             <Button transparent onPress={() => this.popRoute()}>
               <Icon style={commonStyles.headerText} name="ios-arrow-back" />
+              {platform === 'ios'
+                ? null
+                : <Title style={commonStyles.headerTextAndroid}>
+                    {pageTitle}
+                  </Title>}
+
             </Button>
           </Left>
-          <Body style={commonStyles.headerBody}>
-            <Title style={commonStyles.headerText} allowFontScaling={false}>
-              Important Phone Numbers
-            </Title>
-          </Body>
-          <Right />
+          {platform === 'ios'
+            ? <Body style={commonStyles.headerBody}>
+                <Title style={commonStyles.headerText} allowFontScaling={false}>
+                  {pageTitle}
+                </Title>
+              </Body>
+            : null}
+          {platform === 'ios' ? <Right /> : null}
         </Header>
 
         <Content style={commonStyles.content}>
@@ -87,10 +98,10 @@ class PhoneNumbers extends Component {
                 Call {params.PHONE_NUMBER_EMERGENCY}
               </Text>
             </Button>
-            <Text style={commonStyles.text}>
+            <Text style={styles.textMarginTop24}>
               {params.PHONE_TEXT_NON_EMERGENCY}
             </Text>
-            <Text style={styles.textMarginTop16}>
+            <Text style={styles.textMarginTop24}>
               {params.PHONE_TEXT_DISPATCH_BOULDER}
             </Text>
             <Button

@@ -33,7 +33,7 @@ class AppNavigator extends Component {
       key: React.PropTypes.string,
       routes: React.PropTypes.array,
     }),
-    _handleBackAction: React.PropTypes.func,
+    //    _handleBackAction: React.PropTypes.func,
   };
 
   constructor(props) {

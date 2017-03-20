@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Platform } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import {
@@ -25,6 +26,8 @@ const {
   popRoute,
 } = actions;
 
+const pageTitle = 'About Us';
+
 class About extends Component {
   static propTypes = {
     popRoute: React.PropTypes.func,
@@ -38,20 +41,29 @@ class About extends Component {
   }
 
   render() {
+    const platform = Platform.OS;
     return (
       <Container style={commonStyles.container}>
         <Header style={commonStyles.header}>
           <Left>
             <Button transparent onPress={() => this.popRoute()}>
               <Icon style={commonStyles.headerText} name="ios-arrow-back" />
+              {platform === 'ios'
+                ? null
+                : <Title style={commonStyles.headerTextAndroid}>
+                    {pageTitle}
+                  </Title>}
+
             </Button>
           </Left>
-          <Body>
-            <Title style={commonStyles.headerText} allowFontScaling={false}>
-              About Us
-            </Title>
-          </Body>
-          <Right />
+          {platform === 'ios'
+            ? <Body style={commonStyles.headerBody}>
+                <Title style={commonStyles.headerText} allowFontScaling={false}>
+                  {pageTitle}
+                </Title>
+              </Body>
+            : null}
+          {platform === 'ios' ? <Right /> : null}
         </Header>
 
         <Content style={commonStyles.content}>

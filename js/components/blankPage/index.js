@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Platform } from 'react-native';
 import { connect } from 'react-redux';
 import { actions } from 'react-native-navigation-redux-helpers';
 import {
@@ -15,11 +16,14 @@ import {
 } from 'native-base';
 
 import { openDrawer } from '../../actions/drawer';
+import commonStyles from '../../common/commonStyles';
 import styles from './styles';
 
 const {
   popRoute,
 } = actions;
+
+const pageTitle = 'Blank Page';
 
 class BlankPage extends Component {
   static propTypes = {
@@ -38,19 +42,30 @@ class BlankPage extends Component {
 
   render() {
     const { props: { name, index, list } } = this;
+    const platform = Platform.OS;
 
     return (
       <Container style={styles.container}>
-        <Header>
+        <Header style={commonStyles.header}>
           <Left>
             <Button transparent onPress={() => this.popRoute()}>
-              <Icon name="ios-arrow-back" />
+              <Icon style={commonStyles.headerText} name="ios-arrow-back" />
+              {platform === 'ios'
+                ? null
+                : <Title style={commonStyles.headerTextAndroid}>
+                    {pageTitle}
+                  </Title>}
+
             </Button>
           </Left>
-          <Body>
-            <Title>{name ? this.props.name : 'Blank Page'}</Title>
-          </Body>
-          <Right />
+          {platform === 'ios'
+            ? <Body style={commonStyles.headerBody}>
+                <Title style={commonStyles.headerText} allowFontScaling={false}>
+                  {pageTitle}
+                </Title>
+              </Body>
+            : null}
+          {platform === 'ios' ? <Right /> : null}
         </Header>
 
         <Content padder>
