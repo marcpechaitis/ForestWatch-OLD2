@@ -68,9 +68,9 @@ class Home extends Component {
             <Title style={commonStyles.headerText} allowFontScaling={false}>
               {this.props.name ? this.props.name : params.APP_TITLE}
             </Title>
-            {/*    <Subtitle style={commonStyles.headerText} allowFontScaling={false}>
+            <Subtitle style={commonStyles.headerText} allowFontScaling={false}>
               {params.APP_SUBTITLE}
-            </Subtitle>  */}
+            </Subtitle>
           </Body>
           <Right>
             <Button transparent onPress={this.props.openDrawer}>
