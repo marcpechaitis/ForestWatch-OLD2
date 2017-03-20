@@ -62,4 +62,9 @@ export default {
     fontSize: 16,
     alignItems: 'center',
   },
+  textMarginTop16: {
+    marginTop: 16,
+    fontSize: 16,
+    alignItems: 'center',
+  },
 };

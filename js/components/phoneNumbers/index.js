@@ -113,7 +113,7 @@ class PhoneNumbers extends Component {
                 Call {params.PHONE_NUMBER_DISPATCH_BOULDER}
               </Text>
             </Button>
-            <Text style={commonStyles.text}>
+            <Text style={styles.textMarginTop16}>
               {params.PHONE_TEXT_DISPATCH_GILPEN}
             </Text>
             <Button
