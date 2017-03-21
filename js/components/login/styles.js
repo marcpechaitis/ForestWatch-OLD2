@@ -1,38 +1,22 @@
+import { StyleSheet, Dimensions } from 'react-native';
 
-const React = require('react-native');
+import commonColors from '../../common/commonColors';
 
-const { StyleSheet, Dimensions } = React;
+const window = Dimensions.get('window');
 
-const deviceHeight = Dimensions.get('window').height;
+export const IMAGE_HEIGHT = window.width / 2;
+export const IMAGE_HEIGHT_SMALL = window.width / 5;
 
-export default {
+export default StyleSheet.create({
   container: {
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: '#FBFAFA',
-  },
-  shadow: {
+    backgroundColor: commonColors.BACKGROUND_COLOR_CARD,
     flex: 1,
-    width: null,
-    height: null,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  bg: {
-    flex: 1,
-    marginTop: deviceHeight / 1.75,
-    paddingTop: 20,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingBottom: 30,
-    bottom: 0,
+  logo: {
+    height: IMAGE_HEIGHT,
+    resizeMode: 'contain',
+    marginBottom: 30,
   },
-  input: {
-    marginBottom: 20,
-  },
-  btn: {
-    marginTop: 20,
-    alignSelf: 'center',
-  },
-};
+});

@@ -55,10 +55,11 @@ export default {
     color: '#fff',
   },
   button: {
-    flex: 1,
+    //    flex: 1,
     backgroundColor: commonColors.BUTTON_COLOR,
     //    margin: 8,
     width: 200,
+    height: 48,
     alignSelf: 'center',
     justifyContent: 'center',
   },
